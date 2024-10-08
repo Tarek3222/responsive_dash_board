@@ -11,6 +11,9 @@ class DesktopLayoutWidget extends StatelessWidget {
         Expanded(
           child: CustomDrawer(),
         ),
+        Expanded(
+          child: Column(),
+        )
       ],
     );
   }
