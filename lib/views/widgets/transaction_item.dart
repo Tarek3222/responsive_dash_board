@@ -15,25 +15,25 @@ class TransactionItem extends StatelessWidget {
         color: const Color(0xffFAFAFA),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: buildListTile(),
+      child: buildListTile(context),
     );
   }
 
-  ListTile buildListTile() {
+  ListTile buildListTile(context) {
     return ListTile(
       title: Text(
         transactionItem.title,
-        style: AppStyles.textStyleSemiBold16,
+        style: AppStyles.textStyleSemiBold16(context),
       ),
       subtitle: Text(
         transactionItem.date,
-        style: AppStyles.textStyleRegular16.copyWith(
+        style: AppStyles.textStyleRegular16(context).copyWith(
           color: const Color(0xffAAAAAA),
         ),
       ),
       trailing: Text(
         transactionItem.amount,
-        style: AppStyles.textStyleMedium16.copyWith(
+        style: AppStyles.textStyleMedium16(context).copyWith(
             color: transactionItem.isDeposit
                 ? const Color(0xffF3735E)
                 : const Color(0xff7DD97B)),

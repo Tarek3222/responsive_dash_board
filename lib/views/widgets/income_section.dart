@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/utils/app_styles.dart';
 import 'package:responsive_dash_board/views/widgets/build_range_options.dart';
-import 'package:responsive_dash_board/views/widgets/chart_income.dart';
 import 'package:responsive_dash_board/views/widgets/custom_background_container.dart';
-import 'package:responsive_dash_board/views/widgets/income_details.dart';
+import 'package:responsive_dash_board/views/widgets/income_section_body.dart';
 
 class IncomeSection extends StatelessWidget {
   const IncomeSection({super.key});
@@ -13,32 +12,20 @@ class IncomeSection extends StatelessWidget {
     return CustomBackgroundContainer(
       padding: 16,
       child: Column(
-        children: [
-          buildIncomeHeader(),
-          const Row(
-            children: [
-              Expanded(
-                child: ChartIncome(),
-              ),
-              Expanded(
-                child: IncomeDetails(),
-              ),
-            ],
-          )
-        ],
+        children: [buildIncomeHeader(context), const IncomeSectionBody()],
       ),
     );
   }
 
-  Row buildIncomeHeader() {
-    return const Row(
+  Row buildIncomeHeader(context) {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           'Income',
-          style: AppStyles.textStyleSemiBold20,
+          style: AppStyles.textStyleSemiBold20(context),
         ),
-        BuildRangeOptions(),
+        const BuildRangeOptions(),
       ],
     );
   }

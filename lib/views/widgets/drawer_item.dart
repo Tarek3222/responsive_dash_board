@@ -15,11 +15,15 @@ class DrawerItem extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       leading: SvgPicture.asset(item.image),
-      title: Text(
-        item.title,
-        style: isSelected
-            ? AppStyles.textStyleBold16
-            : AppStyles.textStyleRegular16,
+      title: FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: Alignment.centerLeft,
+        child: Text(
+          item.title,
+          style: isSelected
+              ? AppStyles.textStyleBold16(context)
+              : AppStyles.textStyleRegular16(context),
+        ),
       ),
       trailing: isSelected
           ? const VerticalDivider(

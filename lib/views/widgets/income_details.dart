@@ -29,12 +29,12 @@ class IncomeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return IncomeDetailsItem(item: items[index]);
-      },
-      itemCount: items.length,
-      shrinkWrap: true,
+    return Column(
+      children: items
+          .map(
+            (item) => IncomeDetailsItem(item: item),
+          )
+          .toList(),
     );
   }
 }
@@ -56,11 +56,11 @@ class IncomeDetailsItem extends StatelessWidget {
       ),
       title: Text(
         item.title,
-        style: AppStyles.textStyleRegular16,
+        style: AppStyles.textStyleRegular16(context),
       ),
       trailing: Text(
         item.percentage,
-        style: AppStyles.textStyleMedium16.copyWith(
+        style: AppStyles.textStyleMedium16(context).copyWith(
           color: const Color(0xff208CC8),
         ),
       ),

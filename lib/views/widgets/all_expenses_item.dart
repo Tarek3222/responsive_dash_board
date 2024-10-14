@@ -16,12 +16,10 @@ class AllExpensesItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: isSelected ? const Color(0xff4EB7F2) : Colors.white,
         borderRadius: BorderRadius.circular(12),
-        border: isSelected
-            ? null
-            : Border.all(
-                width: 1,
-                color: const Color(0xffF1F1F1),
-              ),
+        border: Border.all(
+          width: 1,
+          color: isSelected ? const Color(0xff4EB7F2) : const Color(0xffF1F1F1),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,31 +31,42 @@ class AllExpensesItem extends StatelessWidget {
           const SizedBox(
             height: 34,
           ),
-          Text(
-            item.title,
-            style: isSelected
-                ? AppStyles.textStyleSemiBold16.copyWith(color: Colors.white)
-                : AppStyles.textStyleSemiBold16,
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              item.title,
+              style: isSelected
+                  ? AppStyles.textStyleSemiBold16(context)
+                      .copyWith(color: Colors.white)
+                  : AppStyles.textStyleSemiBold16(context),
+            ),
           ),
           const SizedBox(
             height: 8,
           ),
-          Text(
-            item.date,
-            style: isSelected
-                ? AppStyles.textStyleRegular14.copyWith(
-                    color: const Color(0xffFAFAFA),
-                  )
-                : AppStyles.textStyleRegular14,
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              item.date,
+              style: isSelected
+                  ? AppStyles.textStyleRegular14(context).copyWith(
+                      color: const Color(0xffFAFAFA),
+                    )
+                  : AppStyles.textStyleRegular14(context),
+            ),
           ),
           const SizedBox(
             height: 16,
           ),
-          Text(
-            item.amount,
-            style: isSelected
-                ? AppStyles.textStyleSemiBold24.copyWith(color: Colors.white)
-                : AppStyles.textStyleSemiBold24,
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              item.amount,
+              style: isSelected
+                  ? AppStyles.textStyleSemiBold24(context)
+                      .copyWith(color: Colors.white)
+                  : AppStyles.textStyleSemiBold24(context),
+            ),
           ),
         ],
       ),

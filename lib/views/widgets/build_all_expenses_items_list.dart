@@ -37,37 +37,57 @@ class _BuildAllExpensesItemsListState extends State<BuildAllExpensesItemsList> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        for (int i = 0; i < allExpensesItemModelList.length; i++)
-          Expanded(
-            child: Padding(
-              padding: i == 2
-                  ? const EdgeInsets.all(0)
-                  : const EdgeInsets.only(right: 12),
-              child: InkWell(
-                onTap: () {
-                  if (selectedIndex != i) {
-                    setState(() {
-                      selectedIndex = i;
-                    });
-                  }
-                },
-                child: AnimatedCrossFade(
-                  crossFadeState: selectedIndex == i
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
-                  duration: const Duration(milliseconds: 300),
-                  firstChild: AllExpensesItem(
-                    isSelected: selectedIndex == i,
-                    item: allExpensesItemModelList[i],
-                  ),
-                  secondChild: AllExpensesItem(
-                    isSelected: selectedIndex == i,
-                    item: allExpensesItemModelList[i],
-                  ),
-                ),
-              ),
+        Expanded(
+          child: InkWell(
+            onTap: () {
+              if (selectedIndex != 0) {
+                setState(() {
+                  selectedIndex = 0;
+                });
+              }
+            },
+            child: AllExpensesItem(
+              isSelected: selectedIndex == 0,
+              item: allExpensesItemModelList[0],
             ),
           ),
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Expanded(
+          child: InkWell(
+            onTap: () {
+              if (selectedIndex != 1) {
+                setState(() {
+                  selectedIndex = 1;
+                });
+              }
+            },
+            child: AllExpensesItem(
+              isSelected: selectedIndex == 1,
+              item: allExpensesItemModelList[1],
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Expanded(
+          child: InkWell(
+            onTap: () {
+              if (selectedIndex != 2) {
+                setState(() {
+                  selectedIndex = 2;
+                });
+              }
+            },
+            child: AllExpensesItem(
+              isSelected: selectedIndex == 2,
+              item: allExpensesItemModelList[2],
+            ),
+          ),
+        ),
       ],
     );
   }
